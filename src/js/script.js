@@ -1,4 +1,4 @@
-function createProducts(produtos){
+function createAllProducts(produtos){
 
     const ulProdutos = document.querySelector(".products-list")
 
@@ -114,6 +114,15 @@ function createProductsLaticinios(produtos) {
  }
 }
 
+function totalPrice(){
+    let precos = document.querySelectorAll(".preco")
+    let soma   = 0
+    for(let i = 0; i < precos.length; i++){
+        soma += parseInt(precos[i].innerText.split("$")[1])
+    }
+    return document.querySelector(".price").innerHTML = `R$ ${soma}.00`
+}
+
 const buttonsDiv = document.getElementById("buttons")
 
 buttonsDiv.addEventListener("click", event => {
@@ -122,7 +131,11 @@ buttonsDiv.addEventListener("click", event => {
  
     if(click.id === "all"){
         document.querySelector(".products-list").innerHTML = ""
-        createProducts(produtos)
+        createAllProducts(produtos)
+        document.getElementById("all").classList = "btn-all"
+        document.getElementById("hortifruti").classList.remove("clickedButton")
+        document.getElementById("panificadora").classList.remove("clickedButton")
+        document.getElementById("laticinios").classList.remove("clickedButton")
         document.querySelector(".price").innerHTML = ""
         totalPrice()
     }
@@ -130,6 +143,10 @@ buttonsDiv.addEventListener("click", event => {
     if(click.id === "hortifruti"){
         document.querySelector(".products-list").innerHTML = ""
         createProductsHortifruti(produtos)
+        document.getElementById("all").classList = "clickedButtonAll"
+        document.getElementById("panificadora").classList.remove("clickedButton")
+        document.getElementById("laticinios").classList.remove("clickedButton")
+        document.getElementById("hortifruti").classList.add("clickedButton")
         document.querySelector(".price").innerHTML = ""
         totalPrice()
     }
@@ -137,6 +154,10 @@ buttonsDiv.addEventListener("click", event => {
     if(click.id === "panificadora"){
         document.querySelector(".products-list").innerHTML = ""
         createProductsPanificadora(produtos)
+        document.getElementById("all").classList = "clickedButtonAll"
+        document.getElementById("hortifruti").classList.remove("clickedButton")
+        document.getElementById("laticinios").classList.remove("clickedButton")
+        document.getElementById("panificadora").classList.add("clickedButton")
         document.querySelector(".price").innerHTML = ""
         totalPrice()
     }
@@ -144,6 +165,10 @@ buttonsDiv.addEventListener("click", event => {
     if(click.id === "laticinios"){
         document.querySelector(".products-list").innerHTML = ""
         createProductsLaticinios(produtos)
+        document.getElementById("all").classList = "clickedButtonAll"
+        document.getElementById("hortifruti").classList.remove("clickedButton")
+        document.getElementById("panificadora").classList.remove("clickedButton")
+        document.getElementById("laticinios").classList.add("clickedButton")
         document.querySelector(".price").innerHTML = ""
         totalPrice()
     }
@@ -154,7 +179,7 @@ function filteredItens(){
     const input        = document.getElementById("search")
     const inputValue   = input.value
     const filteredList = produtos.filter((produto) => {
-        return (produto.nome.toLowerCase().includes(inputValue.toLowerCase()))
+        return (produto.nome.toLowerCase().includes(inputValue.toLowerCase()) || produto.secao.toLocaleLowerCase().includes(inputValue.toLocaleLowerCase()))
     })
     if(filteredList.length == 0){
         document.querySelector(".products-list").innerHTML = "Nenhum produto foi encontrado :("
@@ -162,7 +187,7 @@ function filteredItens(){
     }
     if(filteredList.length > 0){
         document.querySelector(".products-list").innerHTML = ""
-        createProducts(filteredList)
+        createAllProducts(filteredList)
         document.querySelector(".price").innertHTML = ""
         totalPrice()
     }
@@ -170,31 +195,22 @@ function filteredItens(){
 
 function searchFilter(){
 
-const input       = document.getElementById("search")
-const inputButton = document.getElementById("search-button")
+    const input       = document.getElementById("search")
+    const inputButton = document.getElementById("search-button")
 
-inputButton.addEventListener("click", () => {
+    inputButton.addEventListener("click", () => {
     filteredItens()
-})
+    })
 
-input.addEventListener("keydown", event => {
-  if(event.key === "Enter"){
-    filteredItens()
-  }
- })
-}
-
-function totalPrice(){
-    let precos = document.querySelectorAll(".preco")
-    let soma   = 0
-    for(let i = 0; i < precos.length; i++){
-        soma += parseInt(precos[i].innerText.split("$")[1])
-    }
-    return document.querySelector(".price").innerHTML = `R$ ${soma}.00`
+    input.addEventListener("keydown", event => {
+     if(event.key === "Enter"){
+      filteredItens()
+     }
+    })
 }
 
 searchFilter()
-createProducts(produtos)
+createAllProducts(produtos)
 totalPrice()
 
 

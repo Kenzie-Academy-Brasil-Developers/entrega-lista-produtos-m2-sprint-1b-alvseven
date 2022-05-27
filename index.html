@@ -9,7 +9,6 @@
     <title>Lista de Produtos</title>
 </head>
 <body>
-
     <header>
         <div class="logo-container">
             <h1 class="logo-title">Shop now</h1>
@@ -22,24 +21,22 @@
                 <button id="laticinios" class="button">Laticínios</button>
             </div>
             <div class="search-container">
-                <input type="text" placeholder="Pesquisar por produto" id="search" class="search-input">
+                <input type="text" placeholder="Pesquisar por produto ou categoria" id="search" class="search-input">
                 <button id="search-button" class="search-button"><img class="search-icon" src="./src/img/lupa.search.png" alt="button for search"></button>
             </div> 
         </div>
-     <div class="price-container">
-        <span class="info">!</span>
-            <p class="price-title">Valor total dos produtos da seção selecionada</p>
-            <span class="price"></span>
-     </div> 
+            <div class="price-container">
+             <span class="info">!</span>
+             <p class="price-title">Valor total dos produtos da seção selecionada</p>
+             <span class="price"></span>
+        </div> 
     </header>
-
      <main>
          <div class="products-div">
             <ul class="products-list">
             </ul>
          </div>   
      </main>
-
     <script src="src/js/dataProdutos.js"></script>
     <script src="src/js/script.js"></script>
 </body>

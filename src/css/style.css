@@ -32,7 +32,6 @@ body {
     line-height: 24px;
     padding: 14px 26px;
     gap: 10px;
-    width: 167px;
     height: 52px;
     background-color: #12B886;
     color: #FFFFFF;
@@ -48,7 +47,6 @@ body {
     line-height: 24px;
     padding: 14px 26px;
     gap: 10px;
-    width: 122px;
     height: 52px;
     background-color: rgba(18, 184, 134, 0.05);
     border: 1.5px solid rgba(18, 184, 134, 0.05);
@@ -184,3 +182,23 @@ body {
     border: 1.5px solid #12B886;
 }
 
+.clickedButton {
+    background-color: #12B886;
+    color: #FFFFFF;
+}
+
+.clickedButtonAll{
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 24px;
+    padding: 14px 26px;
+    gap: 10px;
+    width: 167px;
+    height: 52px;
+    background-color: #FFFFFF;
+    color: #12B886;
+    border: 1.5px solid rgba(18, 184, 134, 0.05);
+    border-radius: 8px;
+    
+}
