@@ -179,7 +179,7 @@ function filteredItens(){
     const input        = document.getElementById("search")
     const inputValue   = input.value
     const filteredList = produtos.filter((produto) => {
-        return (produto.nome.toLowerCase().includes(inputValue.toLowerCase()) || produto.secao.toLocaleLowerCase().includes(inputValue.toLocaleLowerCase()))
+        return (produto.nome.toLowerCase().includes(inputValue.toLowerCase()) || produto.secao.toLowerCase().includes(inputValue.toLowerCase()) || `${produto.preco}`.includes(inputValue))
     })
     if(filteredList.length == 0){
         document.querySelector(".products-list").innerHTML = "Nenhum produto foi encontrado :("
@@ -212,8 +212,3 @@ function searchFilter(){
 searchFilter()
 createAllProducts(produtos)
 totalPrice()
-
-
-
-
-
