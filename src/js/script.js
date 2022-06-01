@@ -9,9 +9,9 @@ function createAllProducts(produtos){
         const p    = document.createElement("p")
         const span = document.createElement("span")
 
-        img.src = produtos[i].img
-        h3.innerText = produtos[i].nome
-        p.innerText = produtos[i].secao
+        img.src        = produtos[i].img
+        h3.innerText   = produtos[i].nome
+        p.innerText    = produtos[i].secao
         span.innerText = `R$ ${produtos[i].preco}.00`
 
         img.setAttribute("class", "imagem")
@@ -38,9 +38,9 @@ function createProductsHortifruti(produtos) {
         const p    = document.createElement("p")
         const span = document.createElement("span")
     
-        img.src = produtos[i].img
-        h3.innerText = produtos[i].nome
-        p.innerText = produtos[i].secao
+        img.src        = produtos[i].img
+        h3.innerText   = produtos[i].nome
+        p.innerText    = produtos[i].secao
         span.innerText = `R$ ${produtos[i].preco}.00`
     
         img.setAttribute("class", "imagem")
@@ -68,9 +68,9 @@ function createProductsPanificadora(produtos) {
         const p    = document.createElement("p")
         const span = document.createElement("span")
     
-        img.src = produtos[i].img
-        h3.innerText = produtos[i].nome
-        p.innerText = produtos[i].secao
+        img.src        = produtos[i].img
+        h3.innerText   = produtos[i].nome
+        p.innerText    = produtos[i].secao
         span.innerText = `R$ ${produtos[i].preco}.00`
     
         img.setAttribute("class", "imagem")
@@ -98,9 +98,9 @@ function createProductsLaticinios(produtos) {
         const p    = document.createElement("p")
         const span = document.createElement("span")
     
-        img.src = produtos[i].img
-        h3.innerText = produtos[i].nome
-        p.innerText = produtos[i].secao
+        img.src        = produtos[i].img
+        h3.innerText   = produtos[i].nome
+        p.innerText    = produtos[i].secao
         span.innerText = `R$ ${produtos[i].preco}.00`
     
         img.setAttribute("class", "imagem")
@@ -115,8 +115,10 @@ function createProductsLaticinios(produtos) {
 }
 
 function totalPrice(){
+
     let precos = document.querySelectorAll(".preco")
     let soma   = 0
+
     for(let i = 0; i < precos.length; i++){
         soma += parseInt(precos[i].innerText.split("$")[1])
     }
@@ -130,7 +132,7 @@ buttonsDiv.addEventListener("click", event => {
     let click = event.target
  
     if(click.id === "all"){
-        document.querySelector(".products-list").innerHTML = ""
+        clearUl()
         createAllProducts(produtos)
         document.getElementById("all").classList = "btn-all"
         document.getElementById("hortifruti").classList.remove("clickedButton")
@@ -140,8 +142,8 @@ buttonsDiv.addEventListener("click", event => {
         totalPrice()
     }
 
-    if(click.id === "hortifruti"){
-        document.querySelector(".products-list").innerHTML = ""
+    else if(click.id === "hortifruti"){
+        clearUl()
         createProductsHortifruti(produtos)
         document.getElementById("all").classList = "clickedButtonAll"
         document.getElementById("panificadora").classList.remove("clickedButton")
@@ -151,8 +153,8 @@ buttonsDiv.addEventListener("click", event => {
         totalPrice()
     }
 
-    if(click.id === "panificadora"){
-        document.querySelector(".products-list").innerHTML = ""
+    else if(click.id === "panificadora"){
+        clearUl()
         createProductsPanificadora(produtos)
         document.getElementById("all").classList = "clickedButtonAll"
         document.getElementById("hortifruti").classList.remove("clickedButton")
@@ -162,8 +164,8 @@ buttonsDiv.addEventListener("click", event => {
         totalPrice()
     }
 
-    if(click.id === "laticinios"){
-        document.querySelector(".products-list").innerHTML = ""
+    else if(click.id === "laticinios"){
+        clearUl()
         createProductsLaticinios(produtos)
         document.getElementById("all").classList = "clickedButtonAll"
         document.getElementById("hortifruti").classList.remove("clickedButton")
@@ -179,14 +181,16 @@ function filteredItens(){
     const input        = document.getElementById("search")
     const inputValue   = input.value
     const filteredList = produtos.filter((produto) => {
-        return (produto.nome.toLowerCase().includes(inputValue.toLowerCase()) || produto.secao.toLowerCase().includes(inputValue.toLowerCase()) || `${produto.preco}`.includes(inputValue))
+        return (produto.nome.toLowerCase().includes(inputValue.toLowerCase()) 
+        ||      produto.secao.toLowerCase().includes(inputValue.toLowerCase()) 
+        ||      `${produto.preco}`.includes(inputValue))
     })
     if(filteredList.length == 0){
         document.querySelector(".products-list").innerHTML = "Nenhum produto foi encontrado :("
         document.querySelector(".price").innerHTML = "R$ 00.00"
     }
     if(filteredList.length > 0){
-        document.querySelector(".products-list").innerHTML = ""
+        clearUl()
         createAllProducts(filteredList)
         document.querySelector(".price").innertHTML = ""
         totalPrice()
@@ -209,6 +213,12 @@ function searchFilter(){
     })
 }
 
+function clearUl(){
+    return document.querySelector(".products-list").innerHTML = ""
+}
+
 searchFilter()
 createAllProducts(produtos)
 totalPrice()
+
+console.log("Olá")
