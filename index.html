@@ -1,43 +1,82 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./src/css/reset.css">
     <link rel="stylesheet" href="./src/css/style.css">
+    <link rel="stylesheet" href="./src/css/header.css">
+    <link rel="stylesheet" href="./src/css/products.css">
+    <link rel="stylesheet" href="./src/css/cart.css">
     <title>Lista de Produtos</title>
 </head>
+
 <body>
     <header>
         <div class="logo-container">
             <h1 class="logo-title">Shop now</h1>
         </div>
-        <div id="filters" class="filterContainer">
+        <div id="filters" class="filter-container">
             <div id="buttons">
-                <button id="all" class="btn-all">Todos Produtos</button>
+                <button id="all" class="button clickedButton">Todos Produtos</button>
                 <button id="hortifruti" class="button">Hortifruti</button>
                 <button id="panificadora" class="button">Panificadora</button>
                 <button id="laticinios" class="button">Laticínios</button>
             </div>
             <div class="search-container">
-                <input type="text" placeholder="Pesquisar por produto, categoria, ou preço" id="search" class="search-input">
-                <button id="search-button" class="search-button"><img class="search-icon" src="./src/img/lupa.search.png" alt="button for search"></button>
-            </div> 
+                <input type="text" placeholder="Pesquisar por produto, categoria, ou preço" id="search"
+                    class="search-input">
+                <button id="search-button" class="search-button"><img class="search-icon" src="./src/img/lupa.svg"
+                        alt="button for search"></button>
+            </div>
         </div>
-        <div class="price-container">
-             <span class="info">!</span>
-             <p class="price-title">Valor total dos produtos da seção selecionada</p>
-             <span class="price"></span>
-        </div> 
+
+
     </header>
-     <main>
-         <div class="products-div">
+    <main>
+        <section class="products-div">
             <ul class="products-list">
             </ul>
-         </div>   
-     </main>
+        </section>
+        <section class="cart-section">
+            <div class="cart-title">
+                <img class="cart-img" src="./src/img/cart.svg" alt="cart image">
+                <p>Carrinho</p>
+            </div>
+
+            <div class="cart">
+                <div class="empty-cart">
+                    <img src="./src/img/shopping-bag.svg">
+                    <p class="empty-warn">Por enquanto não há produtos no carrinho</p>
+                </div>
+                <ul class="cart-ul">
+                    
+                </ul>
+            </div>
+
+            <div class="finish-container">
+                <div class="quantity-container">
+                    <h4>Quantidade:</h4>
+                    <span class="quantity"></span>
+                </div>
+
+                <div class="price-container">
+                    <h4>Preço total:</h4>
+                    <span class="sum"></span>
+                </div>
+
+                <div class="finish">
+                    <button id="goodbye" class="finish-button">Finalizar compra</button>
+                </div>
+            </div>
+
+        </section>
+    </main>
+
     <script src="src/js/dataProdutos.js"></script>
     <script src="src/js/script.js"></script>
 </body>
+
 </html>
