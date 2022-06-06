@@ -235,12 +235,12 @@
     }
 
     .image {
-        width: 149px;
+        width: 224px;
         height: 175px;
     }
 
     .cart-li {
-        width: 140px;
+        width: 240px;
     }
 
     .cart-section {
@@ -263,16 +263,18 @@
 
     .cart {
         width: 324px;
-        height: 229px;
+        height: 109px;
         margin-left: 12px;
     }
 
     .empty-cart {
         align-items: center;
         justify-content: center;
+        margin: 7px;
     }
 
     .empty-warn {
+        margin: 15px 0px;
         font-size: 0.8rem;
         text-align: center;
     }
