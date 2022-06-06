@@ -68,7 +68,7 @@
     display: flex;
     flex-direction: column;
     margin-left: 10px;
-    gap:11px;
+    gap: 11px;
 }
 
 .cart-item-name {
@@ -150,31 +150,27 @@
     background-color: burlywood;
 }
 .empty-cart-img {
-    margin: 0 auto 30px;
+    margin: auto;
 }
 
 @media (max-width: 480px) {
     
-    .filter-container {
-        width: 350px;
-        margin-left: 30px;
-        flex-direction: column;
+    .logo-container {
+        width: 100%;
     }
-/* 
-    .button.clickedButton {
-        text-align: center;
-        font-size: 1rem;
-        padding: 14px 26px;
-    } */
+
+    .filter-container {
+        display: flex;
+        flex-direction: column;
+        width: 85%;
+        margin-top: 22px;
+        margin-left: 25px;
+    }
 
     #buttons {
         display: flex;
-        flex-wrap: nowrap;
-        flex-direction: row;
-        align-items: center;
-        justify-content: space-between;
         width: 350px;
-        gap: 17px;
+        gap: 12px;
         overflow-x: scroll;
         padding-bottom: 15px;
     }
@@ -188,32 +184,29 @@
 
     .button {
         display: flex;
-        flex-direction: row;
         justify-content: center;
-        align-items: center;
-        width: 177px;
+        width: 157px;
         height: 52px;
         border-radius: 8px;
-        padding: 14px 26px;
-        gap: 10px;
+        gap: 8px;
     }
 
     .search-container {
         display: flex;
+        justify-content: space-between;
         align-items: center;
         margin-top: 15px;
-        margin-left: 80px;
-        gap: 8px;
+        margin-left: auto;
+        gap: 11px;
     }
 
     .search-input {
-        width: 271px;
-        height: 52px;
+        width: 270px;
     }
 
     .search-button {
         width: 59px;
-        height: 52px;
+        margin: auto;
     }
 
     main {
@@ -234,16 +227,20 @@
         padding-bottom: 15px;
     }
     
-    .image {
-        width: 254px;
-        height: 175px;
-    }
-
     .products-list::-webkit-scrollbar {
         width: 0.4rem;
         height: 0.6rem;
         background-color: silver;
         border-radius: 4px;
+    }
+
+    .image {
+        width: 149px;
+        height: 175px;
+    }
+
+    .cart-li {
+        width: 140px;
     }
 
     .cart-section {
@@ -262,14 +259,12 @@
         border-radius: 6px 6px 0px 0px;
         padding: 17px 20px;
         margin-left: 12px;
-        margin-right: 12px;
     }
 
     .cart {
         width: 324px;
         height: 229px;
         margin-left: 12px;
-        margin-right: 12px;
     }
 
     .empty-cart {
@@ -289,7 +284,6 @@
         justify-content: center;
         width: 324px;
         margin-left: 12px;
-        margin-right: 12px;
     }
 
 }

@@ -164,7 +164,8 @@ function filteredItens () {
     const filteredList = produtos.filter((produto) => {
         return (produto.nome.toLowerCase().trim().includes(inputValue.toLowerCase().trim()) 
         ||      produto.secao.toLowerCase().trim().includes(inputValue.toLowerCase().trim()) 
-        ||      `${produto.preco}`.includes(inputValue.trim()))
+        ||      `${produto.preco}`.includes(inputValue.trim())
+        ||      produto.categoria.toLowerCase().trim().includes(inputValue.toLowerCase().trim()))
     })
     if(filteredList.length == 0){
         document.querySelector(".products-list").innerHTML = "Nenhum produto foi encontrado :("
