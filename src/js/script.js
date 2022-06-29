@@ -331,8 +331,11 @@ function hideEmptyCard () {
 function removeItem () {
     const ul = document.querySelector(".cart-ul")
     ul.addEventListener("click", event => {
-        if(event.target.className === 'remove-button' || event.target.className === 'remove-img'){
-            cart = cart.filter(product => product.id !== parseInt(event.target.id))
+        if(event.target.tagName === 'BUTTON' || event.target.className === 'remove-img'){
+            // cart = cart.filter(product => product.id !== parseInt(event.target.id))
+            let found = cart.find(product => product.id == event.target.id)
+            let index = cart.indexOf(found)
+            cart.splice(index, 1)
           }
           renderCart ()
           cartDetails (cart)
@@ -364,3 +367,4 @@ function main () {
     }
 
 main ()
+
